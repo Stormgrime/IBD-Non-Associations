@@ -57,7 +57,7 @@ def chat_with_gpt(prompt):
             {"role": "system", "content": "You are an expert molecular biologist focused on IBD research. You are to find specific, explicitly quoated non-associations with IBD pathogenesis ONLY pertaining to genes, proteins, enzymes, cytokines, mRNA, alleles and SNPs; ignore anything else entirely, and when summarising abstracts only write about the biologics we're looking for. It is imperative that you are extremely strict with your classifications for non-associations, and to be as agonizingly specific pertaining to said non-associations. It is important that you do not conflate singular polymorphisms with whole genes, as an SNP within a gene might be non-associative but that might not be true for the rest of the gene. Do not concern yourself with association factors pertaining to other disease states, such as glucocorticoid resistance in IBD patients; ignore drugs or any administered biologic agents entirely; do not confuse associations with non-associations, especially associations that could play a role in the pathogenesis of IBD; be careful to not conflate biologics with no mutual basis with each other as non-associations with IBD itself."},
             {"role": "user", "content": prompt}
         ],
-        max_tokens=500,
+        max_tokens=500, # Adjust token limit for output here
         n=1,
         stop=None,
         temperature=0, #Adjust temperature value here
@@ -130,7 +130,7 @@ def process_documents(directory_path, output_csv):
     print(f"Total Input Tokens Used: {total_input_tokens}")
     print(f"Total Output Tokens Used: {total_output_tokens}")
 
-directory_path = "Enter directory here"
-output_csv = "non-associations.csv"
+directory_path = "" # Enter directory containing downloaded abstracts here
+output_csv = "non-associations.csv" # Adjust output name here; keep as .csv
 process_documents(directory_path, output_csv)
 
